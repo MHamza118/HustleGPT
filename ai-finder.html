@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Hustle Finder - HustleGPT</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/header.css">
+    <link rel="stylesheet" href="styles/footer.css">
+    <link rel="stylesheet" href="styles/ai-finder.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="header">
+        <nav class="nav-container">
+            <div class="logo">
+                <a href="index.html">HustleGPT</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="trending.html">Trending Hustles</a></li>
+                <li><a href="ai-finder.html" class="active">AI Finder</a></li>
+                <li><a href="success-stories.html">Success Stories</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <button class="cta-button">Find My Hustle</button>
+        </nav>
+    </header>
+
+    <!-- AI Finder Section -->
+    <section class="ai-finder">
+        <div class="container">
+            <h1>Personalized Business & Hustle Recommendations</h1>
+            <p class="subtitle">Answer a few questions to get AI-powered recommendations tailored to your skills and preferences.</p>
+            
+            <div class="quiz-container">
+                <div class="progress-bar">
+                    <div class="progress" id="progressBar"></div>
+                </div>
+                
+                <form id="hustleQuiz">
+                    <!-- Question 1: Budget -->
+                    <div class="question active" id="question1">
+                        <h2>What's Your Budget?</h2>
+                        <div class="options">
+                            <label class="option">
+                                <input type="radio" name="budget" value="0">
+                                <span>$0 (No upfront investment)</span>
+                            </label>
+                            <label class="option">
+                                <input type="radio" name="budget" value="100">
+                                <span>$100 - $500</span>
+                            </label>
+                            <label class="option">
+                                <input type="radio" name="budget" value="500">
+                                <span>$500 - $5,000</span>
+                            </label>
+                            <label class="option">
+                                <input type="radio" name="budget" value="5000">
+                                <span>$5,000+</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Question 2: Time Commitment -->
+                    <div class="question" id="question2">
+                        <h2>How Much Time Can You Invest?</h2>
+                        <div class="options">
+                            <label class="option">
+                                <input type="radio" name="time" value="few">
+                                <span>Few Hours/Week</span>
+                            </label>
+                            <label class="option">
+                                <input type="radio" name="time" value="part">
+                                <span>Part-Time (10-20 hours/week)</span>
+                            </label>
+                            <label class="option">
+                                <input type="radio" name="time" value="full">
+                                <span>Full-Time (40+ hours/week)</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Question 3: Skills -->
+                    <div class="question" id="question3">
+                        <h2>What Are Your Skills & Interests?</h2>
+                        <div class="options">
+                            <label class="option">
+                                <input type="checkbox" name="skills" value="writing">
+                                <span>Writing & Content Creation</span>
+                            </label>
+                            <label class="option">
+                                <input type="checkbox" name="skills" value="design">
+                                <span>Design & Creativity</span>
+                            </label>
+                            <label class="option">
+                                <input type="checkbox" name="skills" value="tech">
+                                <span>Technology & Programming</span>
+                            </label>
+                            <label class="option">
+                                <input type="checkbox" name="skills" value="marketing">
+                                <span>Marketing & Sales</span>
+                            </label>
+                            <label class="option">
+                                <input type="checkbox" name="skills" value="teaching">
+                                <span>Teaching & Education</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Question 4: Hustle Type -->
+                    <div class="question" id="question4">
+                        <h2>What Type of Hustle Are You Looking For?</h2>
+                        <div class="options">
+                            <label class="option">
+                                <input type="radio" name="type" value="passive">
+                                <span>Passive Income (Set it and forget it)</span>
+                            </label>
+                            <label class="option">
+                                <input type="radio" name="type" value="active">
+                                <span>Active Income (Regular work required)</span>
+                            </label>
+                            <label class="option">
+                                <input type="radio" name="type" value="hybrid">
+                                <span>Hybrid (Mix of both)</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Navigation Buttons -->
+                    <div class="quiz-navigation">
+                        <button type="button" class="btn btn-secondary" id="prevBtn" disabled>Previous</button>
+                        <button type="button" class="btn btn-primary" id="nextBtn">Next</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results Section (Initially Hidden) -->
+    <section class="results" id="resultsSection" style="display: none;">
+        <div class="container">
+            <h2>Your Personalized Hustle Recommendations</h2>
+            <div class="results-grid" id="resultsGrid">
+                <!-- Results will be populated by JavaScript -->
+            </div>
+            <div class="cta-container">
+                <button class="btn btn-primary" id="retakeQuiz">Retake Quiz</button>
+                <button class="btn btn-secondary" id="getDetailedGuide">Get Detailed Guide</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>HustleGPT</h3>
+                <p>Your AI-powered business and side hustle finder</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="trending.html">Trending Hustles</a></li>
+                    <li><a href="ai-finder.html">AI Finder</a></li>
+                    <li><a href="success-stories.html">Success Stories</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Legal</h3>
+                <ul>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Connect</h3>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 HustleGPT. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/ai-finder.js"></script>
+</body>
+</html> 
