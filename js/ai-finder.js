@@ -61,6 +61,16 @@ const getDetailedGuideBtn = document.getElementById('getDetailedGuide');
 function updateProgress() {
     const progress = (currentQuestion / totalQuestions) * 100;
     progressBar.style.width = `${progress}%`;
+
+    // Update progress steps
+    document.querySelectorAll('.step').forEach((step, index) => {
+        const stepNumber = parseInt(step.getAttribute('data-step'));
+        if (stepNumber <= currentQuestion) {
+            step.classList.add('active');
+        } else {
+            step.classList.remove('active');
+        }
+    });
 }
 
 // Show current question
@@ -178,4 +188,4 @@ getDetailedGuideBtn.addEventListener('click', () => {
 
 // Initialize quiz
 updateProgress();
-showQuestion(currentQuestion); 
+showQuestion(currentQuestion);

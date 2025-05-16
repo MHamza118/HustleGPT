@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,7 +10,12 @@
     <link rel="stylesheet" href="styles/contact.css">
     <link rel="stylesheet" href="styles/footer.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
 </head>
+
 <body>
     <!-- Header Section -->
     <header class="header">
@@ -17,13 +23,18 @@
             <div class="logo">
                 <a href="index.html">HustleGPT</a>
             </div>
+            <div class="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
             <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="trending.html">Trending Hustles</a></li>
-                <li><a href="ai-finder.html">AI Finder</a></li>
-                <li><a href="success-stories.html">Success Stories</a></li>
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="contact.html" class="active">Contact</a></li>
+                <li style="--i:1"><a href="index.html" class="animated-link">Home</a></li>
+                <li style="--i:2"><a href="trending.html" class="animated-link">Trending Hustles</a></li>
+                <li style="--i:3"><a href="ai-finder.html" class="animated-link">AI Finder</a></li>
+                <li style="--i:4"><a href="success-stories.html" class="animated-link">Success Stories</a></li>
+                <li style="--i:5"><a href="blog.html" class="animated-link">Blog</a></li>
+                <li style="--i:6"><a href="contact.html" class="animated-link active">Contact</a></li>
             </ul>
             <button class="cta-button">Find My Hustle</button>
         </nav>
@@ -31,67 +42,118 @@
 
     <!-- Contact Content -->
     <main class="contact-content">
-        <section class="contact-header">
+        <section class="contact-header reveal fade-bottom">
             <h1>Get in Touch</h1>
-            <p>Have questions or need assistance? We're here to help!</p>
+            <p>Have questions or need assistance? We're here to help you on your entrepreneurial journey!</p>
         </section>
 
         <div class="contact-container">
-            <section class="contact-info">
-                <div class="info-card">
-                    <i class="fas fa-envelope"></i>
+            <section class="contact-info reveal fade-bottom">
+                <div class="info-card card">
+                    <div class="info-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
                     <h3>Email Us</h3>
                     <p>support@hustlegpt.com</p>
+                    <a href="mailto:support@hustlegpt.com" class="btn btn-outline">Send Email</a>
                 </div>
-                <div class="info-card">
-                    <i class="fas fa-phone"></i>
+                <div class="info-card card">
+                    <div class="info-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
                     <h3>Call Us</h3>
                     <p>+1 (555) 123-4567</p>
+                    <a href="tel:+15551234567" class="btn btn-outline">Call Now</a>
                 </div>
-                <div class="info-card">
-                    <i class="fas fa-map-marker-alt"></i>
+                <div class="info-card card">
+                    <div class="info-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
                     <h3>Visit Us</h3>
                     <p>123 Business Ave, Suite 100<br>San Francisco, CA 94107</p>
+                    <a href="https://maps.google.com" target="_blank" class="btn btn-outline">Get Directions</a>
                 </div>
             </section>
 
-            <section class="contact-form">
-                <h2>Send Us a Message</h2>
-                <form id="contactForm">
-                    <div class="form-group">
-                        <label for="name">Name</label>
-                        <input type="text" id="name" name="name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="subject">Subject</label>
-                        <input type="text" id="subject" name="subject" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Message</label>
-                        <textarea id="message" name="message" rows="5" required></textarea>
-                    </div>
-                    <button type="submit" class="submit-button">Send Message</button>
-                </form>
+            <section class="contact-form reveal fade-bottom">
+                <div class="form-container card">
+                    <h2>Send Us a Message</h2>
+                    <p>We typically respond within 24 hours</p>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <div class="input-with-icon">
+                                <i class="fas fa-user"></i>
+                                <input type="text" id="name" name="name" placeholder="Your name" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <div class="input-with-icon">
+                                <i class="fas fa-envelope"></i>
+                                <input type="email" id="email" name="email" placeholder="Your email" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <div class="input-with-icon">
+                                <i class="fas fa-tag"></i>
+                                <input type="text" id="subject" name="subject" placeholder="What is this about?"
+                                    required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <div class="input-with-icon textarea-icon">
+                                <i class="fas fa-comment-alt"></i>
+                                <textarea id="message" name="message" rows="5" placeholder="How can we help you?"
+                                    required></textarea>
+                            </div>
+                        </div>
+                        <button type="submit" class="submit-button btn btn-primary">Send Message</button>
+                    </form>
+                </div>
             </section>
 
-            <section class="faq-section">
+            <section class="faq-section reveal fade-bottom">
                 <h2>Frequently Asked Questions</h2>
                 <div class="faq-container">
-                    <div class="faq-item">
-                        <h3>How does HustleGPT work?</h3>
-                        <p>HustleGPT uses AI to analyze market trends and your skills to recommend the best side hustle opportunities for you.</p>
+                    <div class="faq-item card">
+                        <div class="faq-question">
+                            <h3>How does HustleGPT work?</h3>
+                            <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>HustleGPT uses advanced AI algorithms to analyze current market trends, your unique
+                                skills, and interests to recommend the most profitable and suitable side hustle
+                                opportunities for you. Our platform provides personalized guidance, resources, and
+                                step-by-step action plans to help you succeed.</p>
+                        </div>
                     </div>
-                    <div class="faq-item">
-                        <h3>Is HustleGPT free to use?</h3>
-                        <p>Yes, our basic features are free. We also offer premium plans with additional features and personalized guidance.</p>
+                    <div class="faq-item card">
+                        <div class="faq-question">
+                            <h3>Is HustleGPT free to use?</h3>
+                            <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Yes, our basic features are free for everyone to use. We also offer premium plans with
+                                additional features such as advanced analytics, personalized coaching, exclusive
+                                resources, and priority support for those who want to accelerate their entrepreneurial
+                                journey.</p>
+                        </div>
                     </div>
-                    <div class="faq-item">
-                        <h3>How can I get started?</h3>
-                        <p>Simply sign up, take our AI assessment, and we'll provide personalized recommendations based on your profile.</p>
+                    <div class="faq-item card">
+                        <div class="faq-question">
+                            <h3>How can I get started?</h3>
+                            <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Getting started is easy! Simply sign up for an account, take our comprehensive AI
+                                assessment that analyzes your skills, interests, and goals, and within minutes, you'll
+                                receive personalized side hustle recommendations tailored specifically to you. From
+                                there, you can explore detailed guides and resources to help you launch your new
+                                venture.</p>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -103,31 +165,57 @@
         <div class="footer-content">
             <div class="footer-section">
                 <h3>HustleGPT</h3>
-                <p>Your AI-powered business and side hustle finder</p>
+                <p>Your AI-powered business and side hustle finder. We help entrepreneurs discover profitable
+                    opportunities tailored to their skills and interests.</p>
+                <div class="newsletter-form">
+                    <input type="email" placeholder="Enter your email">
+                    <button>Subscribe</button>
+                </div>
             </div>
             <div class="footer-section">
                 <h3>Quick Links</h3>
                 <ul>
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="trending.html">Trending</a></li>
+                    <li><a href="trending.html">Trending Hustles</a></li>
                     <li><a href="ai-finder.html">AI Finder</a></li>
+                    <li><a href="success-stories.html">Success Stories</a></li>
+                    <li><a href="blog.html">Blog</a></li>
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
             </div>
             <div class="footer-section">
-                <h3>Connect With Us</h3>
+                <h3>Resources</h3>
+                <ul>
+                    <li><a href="#">Business Guides</a></li>
+                    <li><a href="#">Startup Toolkit</a></li>
+                    <li><a href="#">Market Research</a></li>
+                    <li><a href="#">Funding Options</a></li>
+                    <li><a href="#">Success Stories</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Connect</h3>
+                <p>Follow us on social media for the latest updates, tips, and success stories.</p>
                 <div class="social-links">
                     <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-facebook"></i></a>
                     <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-tiktok"></i></a>
+                </div>
+                <div class="legal-links">
+                    <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a>
                 </div>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2024 HustleGPT. All rights reserved.</p>
+            <p>&copy; 2024 HustleGPT. All rights reserved. Empowering entrepreneurs worldwide.</p>
         </div>
     </footer>
 
     <script src="js/contact.js"></script>
+    <script src="js/common.js"></script>
 </body>
-</html> 
+
+</html>

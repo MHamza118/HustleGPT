@@ -13,6 +13,10 @@
     <link rel="stylesheet" href="styles/testimonials.css">
     <link rel="stylesheet" href="styles/footer.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
@@ -22,13 +26,18 @@
             <div class="logo">
                 <a href="index.html">HustleGPT</a>
             </div>
+            <div class="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
             <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="trending.html">Trending Hustles</a></li>
-                <li><a href="ai-finder.html">AI Finder</a></li>
-                <li><a href="success-stories.html">Success Stories</a></li>
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li style="--i:1"><a href="index.html" class="animated-link">Home</a></li>
+                <li style="--i:2"><a href="trending.html" class="animated-link">Trending Hustles</a></li>
+                <li style="--i:3"><a href="ai-finder.html" class="animated-link">AI Finder</a></li>
+                <li style="--i:4"><a href="success-stories.html" class="animated-link">Success Stories</a></li>
+                <li style="--i:5"><a href="blog.html" class="animated-link">Blog</a></li>
+                <li style="--i:6"><a href="contact.html" class="animated-link">Contact</a></li>
             </ul>
             <button class="cta-button">Find My Hustle</button>
         </nav>
@@ -39,8 +48,22 @@
         <div class="hero-content">
             <h1>Find Your Next Profitable Business or Side Hustle with AI</h1>
             <div class="search-box">
-                <input type="text" placeholder="Search for hustles...">
-                <button>Get AI Recommendations</button>
+                <input type="text" placeholder="Enter your skills or interests...">
+                <button>Get Recommendations</button>
+            </div>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <div class="stat-number" data-count="500">0</div>
+                    <div class="stat-label">Business Ideas</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-count="10000">0</div>
+                    <div class="stat-label">Happy Entrepreneurs</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-count="95">0</div>
+                    <div class="stat-label">Success Rate</div>
+                </div>
             </div>
         </div>
     </section>
@@ -62,32 +85,50 @@
     </section>
 
     <!-- How It Works Section -->
-    <section class="how-it-works">
+    <section class="how-it-works reveal fade-bottom">
         <h2>How It Works</h2>
         <div class="steps-container">
             <div class="step">
                 <i class="fas fa-question-circle"></i>
                 <h3>1. Answer Questions</h3>
-                <p>Tell us about your skills, interests, and preferences</p>
+                <p>Tell us about your skills, interests, and preferences. The more details you provide, the better our
+                    AI can match you with the perfect business opportunity.</p>
             </div>
             <div class="step">
                 <i class="fas fa-robot"></i>
                 <h3>2. AI Suggests Ideas</h3>
-                <p>Our AI analyzes your inputs and suggests the best hustles</p>
+                <p>Our advanced AI analyzes your inputs and suggests the best hustles tailored specifically to your
+                    profile, market trends, and profit potential.</p>
             </div>
             <div class="step">
                 <i class="fas fa-rocket"></i>
                 <h3>3. Start Your Hustle</h3>
-                <p>Get detailed guides and resources to begin</p>
+                <p>Get detailed guides, resources, and step-by-step action plans to begin your entrepreneurial journey
+                    with confidence and clarity.</p>
             </div>
         </div>
     </section>
 
     <!-- Testimonials Section -->
-    <section class="testimonials">
+    <section class="testimonials reveal fade-bottom">
         <h2>Success Stories</h2>
-        <div class="testimonials-grid" id="testimonialsGrid">
-            <!-- Testimonials will be populated by JavaScript -->
+        <div class="testimonials-slider">
+            <div class="testimonials-grid" id="testimonialsGrid">
+                <!-- Testimonials will be populated by JavaScript -->
+            </div>
+            <div class="slider-controls">
+                <div class="slider-dot active"></div>
+                <div class="slider-dot"></div>
+                <div class="slider-dot"></div>
+            </div>
+            <div class="slider-arrows">
+                <div class="slider-arrow prev-arrow">
+                    <i class="fas fa-chevron-left"></i>
+                </div>
+                <div class="slider-arrow next-arrow">
+                    <i class="fas fa-chevron-right"></i>
+                </div>
+            </div>
         </div>
         <button class="read-more-btn">Read More Success Stories</button>
     </section>
@@ -97,7 +138,12 @@
         <div class="footer-content">
             <div class="footer-section">
                 <h3>HustleGPT</h3>
-                <p>Your AI-powered business and side hustle finder</p>
+                <p>Your AI-powered business and side hustle finder. We help entrepreneurs discover profitable
+                    opportunities tailored to their skills and interests.</p>
+                <div class="newsletter-form">
+                    <input type="email" placeholder="Enter your email">
+                    <button>Subscribe</button>
+                </div>
             </div>
             <div class="footer-section">
                 <h3>Quick Links</h3>
@@ -106,31 +152,43 @@
                     <li><a href="trending.html">Trending Hustles</a></li>
                     <li><a href="ai-finder.html">AI Finder</a></li>
                     <li><a href="success-stories.html">Success Stories</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contact.html">Contact</a></li>
                 </ul>
             </div>
             <div class="footer-section">
-                <h3>Legal</h3>
+                <h3>Resources</h3>
                 <ul>
-                    <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Business Guides</a></li>
+                    <li><a href="#">Startup Toolkit</a></li>
+                    <li><a href="#">Market Research</a></li>
+                    <li><a href="#">Funding Options</a></li>
+                    <li><a href="#">Success Stories</a></li>
                 </ul>
             </div>
             <div class="footer-section">
                 <h3>Connect</h3>
+                <p>Follow us on social media for the latest updates, tips, and success stories.</p>
                 <div class="social-links">
                     <a href="#"><i class="fab fa-twitter"></i></a>
                     <a href="#"><i class="fab fa-facebook"></i></a>
                     <a href="#"><i class="fab fa-instagram"></i></a>
                     <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-tiktok"></i></a>
+                </div>
+                <div class="legal-links">
+                    <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a>
                 </div>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2024 HustleGPT. All rights reserved.</p>
+            <p>&copy; 2024 HustleGPT. All rights reserved. Empowering entrepreneurs worldwide.</p>
         </div>
     </footer>
 
     <script src="js/main.js"></script>
+    <script src="js/common.js"></script>
 </body>
 
 </html>

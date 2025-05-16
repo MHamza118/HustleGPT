@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,7 +10,12 @@
     <link rel="stylesheet" href="styles/trending.css">
     <link rel="stylesheet" href="styles/footer.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
 </head>
+
 <body>
     <!-- Header Section -->
     <header class="header">
@@ -17,26 +23,31 @@
             <div class="logo">
                 <a href="index.html">HustleGPT</a>
             </div>
+            <div class="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
             <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="trending.html" class="active">Trending Hustles</a></li>
-                <li><a href="ai-finder.html">AI Finder</a></li>
-                <li><a href="success-stories.html">Success Stories</a></li>
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li style="--i:1"><a href="index.html" class="animated-link">Home</a></li>
+                <li style="--i:2"><a href="trending.html" class="animated-link active">Trending Hustles</a></li>
+                <li style="--i:3"><a href="ai-finder.html" class="animated-link">AI Finder</a></li>
+                <li style="--i:4"><a href="success-stories.html" class="animated-link">Success Stories</a></li>
+                <li style="--i:5"><a href="blog.html" class="animated-link">Blog</a></li>
+                <li style="--i:6"><a href="contact.html" class="animated-link">Contact</a></li>
             </ul>
             <button class="cta-button">Find My Hustle</button>
         </nav>
     </header>
 
     <!-- Trending Content Section -->
-    <main class="trending-content">
+    <main class="trending-content reveal fade-bottom">
         <section class="trending-header">
-            <h1>Trending Business & Side Hustles</h1>
+            <h1>Trending Business &amp; Side Hustles</h1>
             <p>Discover the most profitable and in-demand opportunities right now</p>
         </section>
 
-        <section class="trending-filters">
+        <section class="trending-filters reveal fade-bottom">
             <div class="filter-group">
                 <label for="category">Category:</label>
                 <select id="category">
@@ -59,46 +70,49 @@
         </section>
 
         <section class="trending-grid">
-            <div class="trending-item">
+            <div class="trending-item reveal fade-bottom" style="--delay: 0.1s">
                 <div class="trending-badge">Hot</div>
-                <div class="trending-image">
-                    <img src="https://interruptmedia.com/wp-content/uploads/2025/01/Error-Free-Marketing-Workflows-with-AI-Content-Creation-1.png" alt="AI Content Creation">
+                <img src="https://interruptmedia.com/wp-content/uploads/2025/01/Error-Free-Marketing-Workflows-with-AI-Content-Creation-1.png"
+                    alt="AI Content Creation">
+                <div class="trending-item-content">
+                    <h3>AI Content Creation</h3>
+                    <p>Create and sell AI-generated content for businesses</p>
+                    <div class="trending-metrics">
+                        <span><i class="fas fa-chart-line"></i> 45% Growth</span>
+                        <span><i class="fas fa-dollar-sign"></i> $500-2000/mo</span>
+                    </div>
+                    <button class="learn-more btn btn-primary">Learn More</button>
                 </div>
-                <h3>AI Content Creation</h3>
-                <p>Create and sell AI-generated content for businesses</p>
-                <div class="trending-metrics">
-                    <span><i class="fas fa-chart-line"></i> 45% Growth</span>
-                    <span><i class="fas fa-dollar-sign"></i> $500-2000/mo</span>
-                </div>
-                <button class="learn-more">Learn More</button>
             </div>
 
-            <div class="trending-item">
+            <div class="trending-item reveal fade-bottom" style="--delay: 0.2s">
                 <div class="trending-badge">New</div>
-                <div class="trending-image">
-                    <img src="https://static.vecteezy.com/system/resources/thumbnails/016/998/754/small/graphic-flat-design-drawing-laptop-computer-and-shopping-cart-with-product-purchased-online-e-commerce-and-digital-marketing-order-to-cart-online-store-technology-cartoon-style-illustration-vector.jpg" alt="Digital Products">
+                <img src="https://static.vecteezy.com/system/resources/thumbnails/016/998/754/small/graphic-flat-design-drawing-laptop-computer-and-shopping-cart-with-product-purchased-online-e-commerce-and-digital-marketing-order-to-cart-online-store-technology-cartoon-style-illustration-vector.jpg"
+                    alt="Digital Products">
+                <div class="trending-item-content">
+                    <h3>Digital Products</h3>
+                    <p>Sell templates, courses, and digital assets online</p>
+                    <div class="trending-metrics">
+                        <span><i class="fas fa-chart-line"></i> 30% Growth</span>
+                        <span><i class="fas fa-dollar-sign"></i> $1000-5000/mo</span>
+                    </div>
+                    <button class="learn-more btn btn-primary">Learn More</button>
                 </div>
-                <h3>Digital Products</h3>
-                <p>Sell templates, courses, and digital assets online</p>
-                <div class="trending-metrics">
-                    <span><i class="fas fa-chart-line"></i> 30% Growth</span>
-                    <span><i class="fas fa-dollar-sign"></i> $1000-5000/mo</span>
-                </div>
-                <button class="learn-more">Learn More</button>
             </div>
 
-            <div class="trending-item">
+            <div class="trending-item reveal fade-bottom" style="--delay: 0.3s">
                 <div class="trending-badge">Popular</div>
-                <div class="trending-image">
-                    <img src="https://media.istockphoto.com/id/1296110644/photo/dropshipping-delivery-service-concept.jpg?s=612x612&w=0&k=20&c=s3sbhvlpMw6v5UxjJml8TbLcs1yBPq_v_OvkJxJyxzI=" alt="E-commerce">
+                <img src="https://media.istockphoto.com/id/1296110644/photo/dropshipping-delivery-service-concept.jpg?s=612x612&w=0&k=20&c=s3sbhvlpMw6v5UxjJml8TbLcs1yBPq_v_OvkJxJyxzI="
+                    alt="E-commerce">
+                <div class="trending-item-content">
+                    <h3>E-commerce</h3>
+                    <p>Start your own online store with dropshipping</p>
+                    <div class="trending-metrics">
+                        <span><i class="fas fa-chart-line"></i> 25% Growth</span>
+                        <span><i class="fas fa-dollar-sign"></i> $2000-10000/mo</span>
+                    </div>
+                    <button class="learn-more btn btn-primary">Learn More</button>
                 </div>
-                <h3>E-commerce</h3>
-                <p>Start your own online store with dropshipping</p>
-                <div class="trending-metrics">
-                    <span><i class="fas fa-chart-line"></i> 25% Growth</span>
-                    <span><i class="fas fa-dollar-sign"></i> $2000-10000/mo</span>
-                </div>
-                <button class="learn-more">Learn More</button>
             </div>
         </section>
     </main>
@@ -108,31 +122,57 @@
         <div class="footer-content">
             <div class="footer-section">
                 <h3>HustleGPT</h3>
-                <p>Your AI-powered business and side hustle finder</p>
+                <p>Your AI-powered business and side hustle finder. We help entrepreneurs discover profitable
+                    opportunities tailored to their skills and interests.</p>
+                <div class="newsletter-form">
+                    <input type="email" placeholder="Enter your email">
+                    <button>Subscribe</button>
+                </div>
             </div>
             <div class="footer-section">
                 <h3>Quick Links</h3>
                 <ul>
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="trending.html">Trending</a></li>
+                    <li><a href="trending.html">Trending Hustles</a></li>
                     <li><a href="ai-finder.html">AI Finder</a></li>
+                    <li><a href="success-stories.html">Success Stories</a></li>
+                    <li><a href="blog.html">Blog</a></li>
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
             </div>
             <div class="footer-section">
-                <h3>Connect With Us</h3>
+                <h3>Resources</h3>
+                <ul>
+                    <li><a href="#">Business Guides</a></li>
+                    <li><a href="#">Startup Toolkit</a></li>
+                    <li><a href="#">Market Research</a></li>
+                    <li><a href="#">Funding Options</a></li>
+                    <li><a href="#">Success Stories</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Connect</h3>
+                <p>Follow us on social media for the latest updates, tips, and success stories.</p>
                 <div class="social-links">
                     <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-facebook"></i></a>
                     <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-tiktok"></i></a>
+                </div>
+                <div class="legal-links">
+                    <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a>
                 </div>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2024 HustleGPT. All rights reserved.</p>
+            <p>&copy; 2024 HustleGPT. All rights reserved. Empowering entrepreneurs worldwide.</p>
         </div>
     </footer>
 
     <script src="js/trending.js"></script>
+    <script src="js/common.js"></script>
 </body>
-</html> 
+
+</html>

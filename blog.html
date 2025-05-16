@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,7 +10,12 @@
     <link rel="stylesheet" href="styles/blog.css">
     <link rel="stylesheet" href="styles/footer.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
 </head>
+
 <body>
     <!-- Header Section -->
     <header class="header">
@@ -17,13 +23,18 @@
             <div class="logo">
                 <a href="index.html">HustleGPT</a>
             </div>
+            <div class="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
             <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="trending.html">Trending Hustles</a></li>
-                <li><a href="ai-finder.html">AI Finder</a></li>
-                <li><a href="success-stories.html">Success Stories</a></li>
-                <li><a href="blog.html" class="active">Blog</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li style="--i:1"><a href="index.html" class="animated-link">Home</a></li>
+                <li style="--i:2"><a href="trending.html" class="animated-link">Trending Hustles</a></li>
+                <li style="--i:3"><a href="ai-finder.html" class="animated-link">AI Finder</a></li>
+                <li style="--i:4"><a href="success-stories.html" class="animated-link">Success Stories</a></li>
+                <li style="--i:5"><a href="blog.html" class="animated-link active">Blog</a></li>
+                <li style="--i:6"><a href="contact.html" class="animated-link">Contact</a></li>
             </ul>
             <button class="cta-button">Find My Hustle</button>
         </nav>
@@ -31,72 +42,135 @@
 
     <!-- Blog Content -->
     <main class="blog-content">
-        <section class="blog-header">
+        <section class="blog-header reveal fade-bottom">
             <h1>HustleGPT Blog</h1>
             <p>Insights, tips, and strategies for building successful side hustles</p>
+            <div class="blog-categories">
+                <button class="category-btn active" data-category="all">All</button>
+                <button class="category-btn" data-category="business">Business</button>
+                <button class="category-btn" data-category="marketing">Marketing</button>
+                <button class="category-btn" data-category="finance">Finance</button>
+                <button class="category-btn" data-category="tech">Technology</button>
+            </div>
         </section>
 
         <div class="blog-container">
-            <section class="featured-post">
+            <section class="featured-post reveal fade-bottom">
                 <article class="post-card">
                     <div class="post-image">
-                        <img src="https://placehold.co/1200x800/6366f1/ffffff?text=AI+Tools+Guide" alt="Featured Blog Post">
+                        <img src="https://placehold.co/1200x800/6366f1/ffffff?text=AI+Tools+Guide"
+                            alt="Featured Blog Post">
+                        <div class="post-date">
+                            <span class="day">15</span>
+                            <span class="month">Mar</span>
+                        </div>
                     </div>
                     <div class="post-content">
-                        <span class="post-category">Featured</span>
+                        <div class="post-tags">
+                            <span class="post-tag">Featured</span>
+                            <span class="post-tag">Technology</span>
+                        </div>
                         <h2>10 AI Tools That Can Help You Start Your Side Hustle Today</h2>
-                        <p class="post-meta">By John Doe | March 15, 2024 | 8 min read</p>
-                        <p class="post-excerpt">Discover the most powerful AI tools that can help you automate tasks, create content, and grow your side hustle faster than ever before.</p>
-                        <a href="#" class="read-more">Read More</a>
+                        <p class="post-meta"><i class="fas fa-user"></i> By John Doe | <i class="fas fa-clock"></i> 8
+                            min read</p>
+                        <p class="post-excerpt">Discover the most powerful AI tools that can help you automate tasks,
+                            create content, and grow your side hustle faster than ever before.</p>
+                        <a href="#" class="read-more btn btn-primary">Read More</a>
                     </div>
                 </article>
             </section>
 
             <section class="blog-grid">
-                <article class="post-card">
+                <article class="post-card reveal fade-bottom" style="--delay: 0.1s" data-category="business">
                     <div class="post-image">
-                        <img src="https://placehold.co/1200x800/6366f1/ffffff?text=Business+Validation" alt="Business Idea Validation">
+                        <img src="https://placehold.co/1200x800/6366f1/ffffff?text=Business+Validation"
+                            alt="Business Idea Validation">
+                        <div class="post-date">
+                            <span class="day">12</span>
+                            <span class="month">Mar</span>
+                        </div>
                     </div>
                     <div class="post-content">
-                        <span class="post-category">Business Strategy</span>
+                        <div class="post-tags">
+                            <span class="post-tag">Business Strategy</span>
+                        </div>
                         <h3>How to Validate Your Business Idea in 24 Hours</h3>
-                        <p class="post-meta">By Jane Smith | March 12, 2024 | 5 min read</p>
-                        <a href="#" class="read-more">Read More</a>
+                        <p class="post-meta"><i class="fas fa-user"></i> By Jane Smith | <i class="fas fa-clock"></i> 5
+                            min read</p>
+                        <p class="post-excerpt">Learn the quickest and most effective ways to test if your business idea
+                            has real potential before investing time and money.</p>
+                        <a href="#" class="read-more btn btn-primary">Read More</a>
                     </div>
                 </article>
 
-                <article class="post-card">
+                <article class="post-card reveal fade-bottom" style="--delay: 0.2s" data-category="marketing">
                     <div class="post-image">
-                        <img src="https://placehold.co/1200x800/6366f1/ffffff?text=Digital+Marketing" alt="Digital Marketing Strategies">
+                        <img src="https://placehold.co/1200x800/6366f1/ffffff?text=Digital+Marketing"
+                            alt="Digital Marketing Strategies">
+                        <div class="post-date">
+                            <span class="day">10</span>
+                            <span class="month">Mar</span>
+                        </div>
                     </div>
                     <div class="post-content">
-                        <span class="post-category">Marketing</span>
+                        <div class="post-tags">
+                            <span class="post-tag">Marketing</span>
+                        </div>
                         <h3>Digital Marketing Strategies for Side Hustles</h3>
-                        <p class="post-meta">By Mike Johnson | March 10, 2024 | 6 min read</p>
-                        <a href="#" class="read-more">Read More</a>
+                        <p class="post-meta"><i class="fas fa-user"></i> By Mike Johnson | <i class="fas fa-clock"></i>
+                            6 min read</p>
+                        <p class="post-excerpt">Effective marketing strategies that won't break the bank but will help
+                            you reach your target audience.</p>
+                        <a href="#" class="read-more btn btn-primary">Read More</a>
                     </div>
                 </article>
 
-                <article class="post-card">
+                <article class="post-card reveal fade-bottom" style="--delay: 0.3s" data-category="finance">
                     <div class="post-image">
-                        <img src="https://placehold.co/1200x800/6366f1/ffffff?text=Financial+Planning" alt="Financial Planning">
+                        <img src="https://placehold.co/1200x800/6366f1/ffffff?text=Financial+Planning"
+                            alt="Financial Planning">
+                        <div class="post-date">
+                            <span class="day">08</span>
+                            <span class="month">Mar</span>
+                        </div>
                     </div>
                     <div class="post-content">
-                        <span class="post-category">Finance</span>
+                        <div class="post-tags">
+                            <span class="post-tag">Finance</span>
+                        </div>
                         <h3>Financial Planning for Your Side Hustle</h3>
-                        <p class="post-meta">By Sarah Williams | March 8, 2024 | 7 min read</p>
-                        <a href="#" class="read-more">Read More</a>
+                        <p class="post-meta"><i class="fas fa-user"></i> By Sarah Williams | <i
+                                class="fas fa-clock"></i> 7 min read</p>
+                        <p class="post-excerpt">Smart financial strategies to manage your side hustle income, minimize
+                            taxes, and maximize profits.</p>
+                        <a href="#" class="read-more btn btn-primary">Read More</a>
                     </div>
                 </article>
             </section>
 
-            <section class="newsletter">
-                <h2>Subscribe to Our Newsletter</h2>
-                <p>Get the latest tips and strategies delivered to your inbox</p>
-                <form class="newsletter-form">
-                    <input type="email" placeholder="Enter your email" required>
-                    <button type="submit">Subscribe</button>
-                </form>
+            <section class="newsletter reveal fade-bottom">
+                <div class="newsletter-container card">
+                    <h2>Subscribe to Our Newsletter</h2>
+                    <p>Get the latest tips and strategies delivered to your inbox weekly</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Enter your email" required>
+                        <button type="submit" class="btn btn-accent">Subscribe</button>
+                    </form>
+                    <div class="newsletter-benefits">
+                        <div class="benefit">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Weekly business tips</span>
+                        </div>
+                        <div class="benefit">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Exclusive resources</span>
+                        </div>
+                        <div class="benefit">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Success stories</span>
+                        </div>
+                    </div>
+                </div>
             </section>
         </div>
     </main>
@@ -106,31 +180,57 @@
         <div class="footer-content">
             <div class="footer-section">
                 <h3>HustleGPT</h3>
-                <p>Your AI-powered business and side hustle finder</p>
+                <p>Your AI-powered business and side hustle finder. We help entrepreneurs discover profitable
+                    opportunities tailored to their skills and interests.</p>
+                <div class="newsletter-form">
+                    <input type="email" placeholder="Enter your email">
+                    <button>Subscribe</button>
+                </div>
             </div>
             <div class="footer-section">
                 <h3>Quick Links</h3>
                 <ul>
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="trending.html">Trending</a></li>
+                    <li><a href="trending.html">Trending Hustles</a></li>
                     <li><a href="ai-finder.html">AI Finder</a></li>
+                    <li><a href="success-stories.html">Success Stories</a></li>
+                    <li><a href="blog.html">Blog</a></li>
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
             </div>
             <div class="footer-section">
-                <h3>Connect With Us</h3>
+                <h3>Resources</h3>
+                <ul>
+                    <li><a href="#">Business Guides</a></li>
+                    <li><a href="#">Startup Toolkit</a></li>
+                    <li><a href="#">Market Research</a></li>
+                    <li><a href="#">Funding Options</a></li>
+                    <li><a href="#">Success Stories</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Connect</h3>
+                <p>Follow us on social media for the latest updates, tips, and success stories.</p>
                 <div class="social-links">
                     <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-facebook"></i></a>
                     <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-tiktok"></i></a>
+                </div>
+                <div class="legal-links">
+                    <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a>
                 </div>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2024 HustleGPT. All rights reserved.</p>
+            <p>&copy; 2024 HustleGPT. All rights reserved. Empowering entrepreneurs worldwide.</p>
         </div>
     </footer>
 
     <script src="js/blog.js"></script>
+    <script src="js/common.js"></script>
 </body>
-</html> 
+
+</html>
