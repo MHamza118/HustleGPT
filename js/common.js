@@ -169,6 +169,32 @@ function setupCategoryFilters() {
     });
 }
 
+// Hide header on scroll down, show on scroll up
+let lastScrollY = window.scrollY;
+let ticking = false;
+const header = document.querySelector('.header');
+
+function handleHeaderScrollHide() {
+    if (!header) return;
+    const currentScrollY = window.scrollY;
+    if (currentScrollY > lastScrollY && currentScrollY > 60) {
+        // Scrolling down
+        header.style.transform = 'translateY(-100%)';
+    } else {
+        // Scrolling up
+        header.style.transform = '';
+    }
+    lastScrollY = currentScrollY;
+    ticking = false;
+}
+
+window.addEventListener('scroll', () => {
+    if (!ticking) {
+        window.requestAnimationFrame(handleHeaderScrollHide);
+        ticking = true;
+    }
+});
+
 // Initialize all common functionality when the DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
     setupMobileMenu();

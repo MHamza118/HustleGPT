@@ -430,4 +430,18 @@ section h2 {
     ::-webkit-scrollbar {
         width: 5px;
     }
+
+    .page-top-spacer {
+        padding-top: 48px;
+    }
+}
+
+.page-top-spacer {
+    padding-top: 64px;
+}
+
+@media (max-width: 480px) {
+    .page-top-spacer {
+        padding-top: 48px;
+    }
 }

@@ -393,3 +393,7 @@
         font-size: var(--font-size-sm);
     }
 }
+
+.ai-finder-header {
+    margin-top: 12px;
+}

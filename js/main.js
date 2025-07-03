@@ -4,7 +4,7 @@ const trendingHustles = [
         title: "Dropshipping Business",
         description: "Start an e-commerce store without holding inventory",
         category: "E-commerce",
-        image: "https://media.istockphoto.com/id/1296110644/photo/dropshipping-delivery-service-concept.jpg?s=612x612&w=0&k=20&c=s3sbhvlpMw6v5UxjJml8TbLcs1yBPq_v_OvkJxJyxzI=",
+        image: "https://t3.ftcdn.net/jpg/01/80/17/68/240_F_180176868_J4t0klqAm28kGp35jVGojKMpDSipSSIc.jpg",
         earnings: "$1,000 - $10,000/month",
         difficulty: "Medium"
     },
@@ -12,7 +12,7 @@ const trendingHustles = [
         title: "Freelance Writing",
         description: "Write content for blogs, websites, and businesses",
         category: "Digital Services",
-        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSXKonw4f6SUyFED7nTHzxn8-6vNBnK6mMcQQ&s",
+        image: "https://t4.ftcdn.net/jpg/14/18/77/69/240_F_1418776919_mqAErqUqUeSWgN1WfAqcRQwqL1dpWHew.jpg",
         earnings: "$500 - $5,000/month",
         difficulty: "Easy"
     },
@@ -36,7 +36,7 @@ const trendingHustles = [
         title: "Stock Photography",
         description: "Sell your photos on stock photography websites",
         category: "Passive Income",
-        image: "https://img.freepik.com/free-photo/photographer-taking-photos-outdoors_23-2149020423.jpg",
+        image: "https://t3.ftcdn.net/jpg/12/62/87/76/240_F_1262877699_TExCGL0lDYfzLy7x2znc0sqM4A3jKUtm.jpg",
         earnings: "$300 - $2,000/month",
         difficulty: "Medium"
     },
@@ -52,7 +52,7 @@ const trendingHustles = [
         title: "Mobile Car Wash",
         description: "Offer convenient car washing services at customers' locations",
         category: "Local Businesses",
-        image: "https://img.freepik.com/free-photo/man-washing-his-car-car-wash_1157-26068.jpg",
+        image: "https://t3.ftcdn.net/jpg/07/69/10/06/240_F_769100696_xNqKBZHd61XecIrePTYBwzWLnMoMIk2G.jpg",
         earnings: "$1,500 - $6,000/month",
         difficulty: "Easy"
     },
@@ -60,7 +60,7 @@ const trendingHustles = [
         title: "Home Cleaning Service",
         description: "Provide professional cleaning services for homes and apartments",
         category: "Local Businesses",
-        image: "https://img.freepik.com/free-photo/woman-with-cleaning-gloves-cleaning-house_23-2148684861.jpg",
+        image: "https://t4.ftcdn.net/jpg/04/53/14/89/240_F_453148935_iu5b8hlHDpLDwzQ5FEZjfKkhd8nmUSkp.jpg",
         earnings: "$2,000 - $8,000/month",
         difficulty: "Medium"
     }
@@ -228,19 +228,6 @@ function setupSearch() {
     });
 }
 
-// Function to handle mobile menu toggle
-function setupMobileMenu() {
-    const menuToggle = document.querySelector('.menu-toggle');
-    const navLinks = document.querySelector('.nav-links');
-
-    if (!menuToggle || !navLinks) return;
-
-    menuToggle.addEventListener('click', () => {
-        menuToggle.classList.toggle('active');
-        navLinks.classList.toggle('active');
-    });
-}
-
 // Function to handle header scroll effect
 function setupHeaderScroll() {
     const header = document.querySelector('.header');
@@ -370,7 +357,6 @@ document.addEventListener('DOMContentLoaded', () => {
     populateTestimonials();
     setupCategoryFiltering();
     setupSearch();
-    setupMobileMenu();
     setupHeaderScroll();
     setTimeout(animateNumbers, 1000); // Delay to ensure visibility
     setupScrollReveal();

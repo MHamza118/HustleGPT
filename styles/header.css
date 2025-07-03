@@ -232,31 +232,47 @@
     .nav-container {
         padding: var(--spacing-xs) var(--spacing-sm);
         justify-content: flex-end;
-        /* Move everything to the right */
     }
 
-    /* Hide the logo on very small screens */
     .logo {
         display: none;
     }
 
-    /* Make menu toggle more prominent and ensure it's visible */
     .menu-toggle {
-        width: 24px;
-        height: 18px;
-        position: relative;
+        width: 36px;
+        height: 36px;
+        position: fixed;
+        left: 16px;
+        top: 50%;
+        transform: translateY(-50%);
         z-index: 1001;
-        /* Higher z-index to ensure it's always clickable */
-        margin-right: var(--spacing-md);
-        /* Add some margin for better touch target */
+        margin: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(255,255,255,0.95);
+        border-radius: 50%;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        transition: box-shadow 0.2s;
+        cursor: pointer;
+        flex-direction: column;
+        justify-content: center;
+        gap: 5px;
+    }
+
+    .menu-toggle:active, .menu-toggle.active {
+        box-shadow: 0 4px 16px rgba(79,70,229,0.15);
     }
 
     .menu-toggle span {
+        width: 22px;
         height: 3px;
         background-color: var(--primary-color);
+        margin: 0;
+        border-radius: 3px;
+        transition: all var(--transition-normal);
     }
 
-    /* Ensure the menu is full screen and properly positioned */
     .nav-links {
         width: 100%;
         max-width: none;
@@ -277,7 +293,10 @@
     }
 
     .cta-button {
+        width: auto;
+        min-width: 0;
+        font-size: var(--font-size-xs);
         padding: var(--spacing-xs) var(--spacing-md);
-        font-size: var(--font-size-sm);
+        margin-top: 10px;
     }
 }

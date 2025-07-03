@@ -7,7 +7,7 @@
 
 .stories-header {
     text-align: center;
-    margin-bottom: var(--spacing-2xl);
+    margin-bottom: 0;
 }
 
 .stories-header h1 {
@@ -56,6 +56,9 @@
     box-shadow: var(--shadow-md);
     transition: all 0.3s ease;
     position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 .story-card:hover {
@@ -112,6 +115,9 @@
 
 .story-content {
     padding: var(--spacing-xl);
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
 }
 
 .story-content h3 {
@@ -152,6 +158,10 @@
     border-radius: var(--border-radius-md);
     border: none;
     cursor: pointer;
+    margin-top: auto;
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .read-more:hover {
@@ -182,6 +192,9 @@
 }
 
 .submit-button {
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
     padding: var(--spacing-md) var(--spacing-xl);
     background-color: var(--primary-color);
     color: white;
@@ -336,6 +349,21 @@
     .stats-container {
         grid-template-columns: 1fr 1fr;
     }
+
+    /* Filter buttons responsive design for tablets */
+    .filter-group {
+        padding: var(--spacing-md) var(--spacing-lg);
+        gap: var(--spacing-md);
+    }
+
+    .filter-buttons {
+        gap: var(--spacing-sm);
+    }
+
+    .filter-btn {
+        padding: var(--spacing-sm) var(--spacing-md);
+        font-size: var(--font-size-sm);
+    }
 }
 
 /* Small screens (480px and below) */
@@ -416,6 +444,51 @@
         grid-template-columns: 1fr;
     }
 
+    /* Filter buttons responsive design for small screens */
+    .stories-filter {
+        margin: 0 0 var(--spacing-xl) 0;
+    }
+
+    .filter-group {
+        flex-direction: column;
+        gap: var(--spacing-md);
+        padding: var(--spacing-md);
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .filter-group label {
+        font-size: var(--font-size-base);
+        margin-right: 0;
+        margin-bottom: var(--spacing-sm);
+    }
+
+    .filter-buttons {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--spacing-sm);
+        justify-content: center;
+        width: 100%;
+    }
+
+    .filter-btn {
+        padding: var(--spacing-xs) var(--spacing-md);
+        font-size: var(--font-size-sm);
+        white-space: nowrap;
+        text-align: center;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary-color) 100%);
+        color: #fff;
+        border: none;
+        border-radius: var(--border-radius-full);
+        font-weight: 600;
+        box-shadow: var(--shadow-sm);
+        transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+        margin: 2px 0;
+    }
+
     /* Modal adjustments for very small screens */
     .story-modal-content {
         width: 100%;
@@ -442,4 +515,67 @@
         right: var(--spacing-xs);
         margin: var(--spacing-xs);
     }
+}
+
+.stories-filter {
+    margin: 0 0 var(--spacing-2xl) 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.filter-group {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-lg);
+    background: var(--light-background);
+    padding: var(--spacing-md) var(--spacing-xl);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-sm);
+}
+
+.filter-group label {
+    font-weight: 600;
+    color: var(--primary-color);
+    font-size: var(--font-size-lg);
+    margin-right: var(--spacing-md);
+}
+
+.filter-buttons {
+    display: flex;
+    gap: var(--spacing-md);
+}
+
+.filter-btn {
+    background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary-color) 100%);
+    color: #fff;
+    border: none;
+    border-radius: var(--border-radius-full);
+    padding: var(--spacing-xs) var(--spacing-lg);
+    font-weight: 600;
+    font-size: var(--font-size-base);
+    transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+    box-shadow: var(--shadow-sm);
+    cursor: pointer;
+    outline: none;
+}
+
+.filter-btn:hover,
+.filter-btn:focus {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+    color: #fff;
+    box-shadow: var(--shadow-md);
+}
+
+.filter-btn.active {
+    background: linear-gradient(135deg, var(--secondary-color) 0%, var(--primary-color) 100%);
+    color: #fff;
+    box-shadow: var(--shadow-lg);
+}
+
+.submit-container.card {
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }

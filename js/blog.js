@@ -8,7 +8,7 @@ const blogPosts = [
         author: "John Doe",
         date: "March 15, 2024",
         readTime: "8 min",
-        image: "https://placehold.co/1200x800/6366f1/ffffff?text=AI+Tools+Guide",
+        image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80", // AI/tech
         category: "tech",
         featured: true
     },
@@ -18,7 +18,7 @@ const blogPosts = [
         author: "Jane Smith",
         date: "March 12, 2024",
         readTime: "5 min",
-        image: "https://placehold.co/1200x800/6366f1/ffffff?text=Business+Validation",
+        image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=800&q=80", // Business
         category: "business"
     },
     {
@@ -27,7 +27,7 @@ const blogPosts = [
         author: "Mike Johnson",
         date: "March 10, 2024",
         readTime: "6 min",
-        image: "https://placehold.co/1200x800/6366f1/ffffff?text=Digital+Marketing",
+        image: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80", // Marketing
         category: "marketing"
     },
     {
@@ -36,7 +36,7 @@ const blogPosts = [
         author: "Sarah Williams",
         date: "March 8, 2024",
         readTime: "7 min",
-        image: "https://placehold.co/1200x800/6366f1/ffffff?text=Financial+Planning",
+        image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80", // Finance
         category: "finance"
     }
 ];
@@ -114,8 +114,74 @@ function setupReadMoreButtons() {
     });
 }
 
+// Function to render blog posts dynamically
+function renderBlogPosts() {
+    const featuredSection = document.querySelector('.featured-post');
+    const blogGrid = document.querySelector('.blog-grid');
+    if (!featuredSection || !blogGrid) return;
+
+    // Clear existing content
+    featuredSection.innerHTML = '';
+    blogGrid.innerHTML = '';
+
+    // Render featured post
+    const featured = blogPosts.find(post => post.featured);
+    if (featured) {
+        featuredSection.innerHTML = `
+            <article class="post-card" data-category="${featured.category}">
+                <div class="post-image">
+                    <img src="${featured.image}" alt="${featured.title}">
+                    <div class="post-date">
+                        <span class="day">${new Date(featured.date).getDate()}</span>
+                        <span class="month">${new Date(featured.date).toLocaleString('default', { month: 'short' })}</span>
+                    </div>
+                </div>
+                <div class="post-content">
+                    <div class="post-tags">
+                        <span class="post-tag">Featured</span>
+                        <span class="post-tag">${capitalize(featured.category)}</span>
+                    </div>
+                    <h2>${featured.title}</h2>
+                    <p class="post-meta"><i class="fas fa-user"></i> By ${featured.author} | <i class="fas fa-clock"></i> ${featured.readTime} read</p>
+                    <p class="post-excerpt">${featured.excerpt}</p>
+                    <a href="#" class="read-more btn btn-primary">Read More</a>
+                </div>
+            </article>
+        `;
+    }
+
+    // Render other posts
+    blogPosts.filter(post => !post.featured).forEach((post, idx) => {
+        blogGrid.innerHTML += `
+            <article class="post-card reveal fade-bottom" style="--delay: 0.${idx + 1}s" data-category="${post.category}">
+                <div class="post-image">
+                    <img src="${post.image}" alt="${post.title}">
+                    <div class="post-date">
+                        <span class="day">${new Date(post.date).getDate()}</span>
+                        <span class="month">${new Date(post.date).toLocaleString('default', { month: 'short' })}</span>
+                    </div>
+                </div>
+                <div class="post-content">
+                    <div class="post-tags">
+                        <span class="post-tag">${capitalize(post.category)}</span>
+                    </div>
+                    <h3>${post.title}</h3>
+                    <p class="post-meta"><i class="fas fa-user"></i> By ${post.author} | <i class="fas fa-clock"></i> ${post.readTime} read</p>
+                    <p class="post-excerpt">${post.excerpt}</p>
+                    <a href="#" class="read-more btn btn-primary">Read More</a>
+                </div>
+            </article>
+        `;
+    });
+}
+
+function capitalize(str) {
+    return str.charAt(0).toUpperCase() + str.slice(1);
+}
+
 // Initialize the page
 document.addEventListener('DOMContentLoaded', () => {
+    renderBlogPosts();
     setupCategoryFiltering();
     setupNewsletterForm();
     setupReadMoreButtons();
