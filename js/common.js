@@ -195,6 +195,26 @@ window.addEventListener('scroll', () => {
     }
 });
 
+// Auto-highlight current page in navigation
+function highlightCurrentPage() {
+    const currentPath = window.location.pathname;
+    const navLinks = document.querySelectorAll('.nav-links a');
+    
+    // Remove all active classes first
+    navLinks.forEach(link => {
+        link.classList.remove('active');
+    });
+    
+    // Add active class to current page
+    navLinks.forEach(link => {
+        if (link.getAttribute('href') === currentPath.split('/').pop() || 
+            (currentPath === '/' && link.getAttribute('href') === 'index.html') ||
+            (currentPath.includes(link.getAttribute('href').replace('.html', '')))) {
+            link.classList.add('active');
+        }
+    });
+}
+
 // Initialize all common functionality when the DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
     setupMobileMenu();
@@ -208,4 +228,5 @@ document.addEventListener('DOMContentLoaded', () => {
     animateElements('.footer-section');
     setupFaqToggles();
     setupCategoryFilters();
+    highlightCurrentPage();
 });

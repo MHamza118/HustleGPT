@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="styles/how-it-works.css">
     <link rel="stylesheet" href="styles/testimonials.css">
     <link rel="stylesheet" href="styles/footer.css">
+    <link rel="stylesheet" href="styles/recommendations.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,7 +25,9 @@
     <header class="header">
         <nav class="nav-container">
             <div class="logo">
-                <a href="index.html">HustleGPT</a>
+                <a href="index.html">
+                    <img src="images/hustlegpt_logo.png" alt="HustleGPT" class="logo-image">
+                </a>
             </div>
             <div class="menu-toggle">
                 <span></span>
@@ -38,8 +41,8 @@
                 <li style="--i:4"><a href="success-stories.html" class="animated-link">Success Stories</a></li>
                 <li style="--i:5"><a href="blog.html" class="animated-link">Blog</a></li>
                 <li style="--i:6"><a href="contact.html" class="animated-link">Contact</a></li>
+                <li style="--i:7"><button class="cta-button">Find My Hustle</button></li>
             </ul>
-            <button class="cta-button">Find My Hustle</button>
         </nav>
     </header>
 
@@ -133,6 +136,9 @@
         </div>
         <button class="read-more-btn">Read More Success Stories</button>
     </section>
+
+    <!-- Recommended for You Section (AI Recommendations) -->
+    <section id="recommendations-section" class="reveal fade-bottom"></section>
     </div>
 
     <!-- Footer -->
@@ -191,6 +197,7 @@
 
     <script src="js/main.js"></script>
     <script src="js/common.js"></script>
+    <script src="js/recommendations.js"></script>
 </body>
 
 </html>

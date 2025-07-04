@@ -14,6 +14,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
+    <link rel="stylesheet" href="styles/comments.css">
 </head>
 
 <body>
@@ -21,7 +22,9 @@
     <header class="header">
         <nav class="nav-container">
             <div class="logo">
-                <a href="index.html">HustleGPT</a>
+                <a href="index.html">
+                    <img src="images/hustlegpt_logo.png" alt="HustleGPT" class="logo-image">
+                </a>
             </div>
             <div class="menu-toggle">
                 <span></span>
@@ -32,11 +35,11 @@
                 <li style="--i:1"><a href="index.html" class="animated-link">Home</a></li>
                 <li style="--i:2"><a href="trending.html" class="animated-link">Trending Hustles</a></li>
                 <li style="--i:3"><a href="ai-finder.html" class="animated-link">AI Finder</a></li>
-                <li style="--i:4"><a href="success-stories.html" class="animated-link active">Success Stories</a></li>
+                <li style="--i:4"><a href="success-stories.html" class="animated-link">Success Stories</a></li>
                 <li style="--i:5"><a href="blog.html" class="animated-link">Blog</a></li>
                 <li style="--i:6"><a href="contact.html" class="animated-link">Contact</a></li>
+                <li style="--i:7"><button class="cta-button">Find My Hustle</button></li>
             </ul>
-            <button class="cta-button">Find My Hustle</button>
         </nav>
     </header>
 
@@ -155,6 +158,7 @@
             </div>
         </section>
     </main>
+    <section id="comments-section" class="reveal fade-bottom"></section>
     </div>
 
     <!-- Footer Section -->
@@ -213,6 +217,7 @@
 
     <script src="js/success-stories.js"></script>
     <script src="js/common.js"></script>
+    <script src="js/comments.js"></script>
 </body>
 
 </html>
