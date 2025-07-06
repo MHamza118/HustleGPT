@@ -295,6 +295,62 @@
     }
 }
 
+@media (max-width: 480px) {
+    .testimonials {
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+    .testimonials-slider {
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+    .testimonials-grid {
+        min-height: unset;
+        padding: 0 !important;
+        margin: 0 !important;
+        gap: 0 !important;
+    }
+    .testimonial-card {
+        padding: 8px 10px !important;
+        max-width: 95vw;
+        margin: 0 auto !important;
+    }
+    .slider-arrows {
+        display: flex !important;
+        position: static;
+        margin: 0 auto !important;
+        width: 100%;
+        justify-content: center;
+        gap: 16px;
+        pointer-events: auto;
+        background: none;
+    }
+    .slider-arrow {
+        width: 32px;
+        height: 32px;
+        font-size: 1.1em;
+        background: white;
+        color: var(--primary-color);
+        box-shadow: none;
+        opacity: 1;
+        margin: 0 2px;
+        border: 1px solid #eee;
+    }
+    .testimonials h2 {
+        margin-bottom: 8px !important;
+    }
+    .testimonials-slider {
+        margin-bottom: 8px !important;
+    }
+    .testimonial-card {
+        margin-bottom: 8px !important;
+    }
+    .read-more-btn {
+        margin-top: 8px !important;
+        margin-bottom: 0 !important;
+    }
+}
+
 /* Animation for testimonials */
 .testimonial-card {
     opacity: 0;

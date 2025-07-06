@@ -1,7 +1,7 @@
 // JavaScript for the success-stories.html page
 
 // Sample data for success stories
-const successStories = [
+window.successStories = [
     {
         id: "sarah-johnson",
         name: "Sarah Johnson",
@@ -468,7 +468,7 @@ function setupReadMoreButtons() {
 
             // Find the story in our data
             const storyId = getStoryIdFromTitle(storyTitle);
-            const story = successStories.find(s => s.id === storyId);
+            const story = window.successStories.find(s => s.id === storyId);
 
             if (story) {
                 showFullStory(story);
@@ -479,7 +479,7 @@ function setupReadMoreButtons() {
 
 // Function to get story ID from title
 function getStoryIdFromTitle(title) {
-    const story = successStories.find(s => s.title === title);
+    const story = window.successStories.find(s => s.title === title);
     return story ? story.id : null;
 }
 
@@ -500,12 +500,23 @@ function showFullStory(story) {
     closeButton.addEventListener('click', () => {
         document.body.removeChild(modal);
         document.body.style.overflow = 'auto'; // Re-enable scrolling
+        stopModalSpeech();
     });
 
     // Add story content
     const storyContent = document.createElement('div');
     storyContent.className = 'story-full-content';
     storyContent.innerHTML = story.fullStory;
+    storyContent.style.position = 'relative';
+
+    // Insert listen-row after the first h2/h3 in storyContent
+    const titleEl = storyContent.querySelector('h2, h3');
+    if (titleEl) {
+        const listenRow = document.createElement('div');
+        listenRow.className = 'listen-row';
+        listenRow.innerHTML = `<button class="tts-btn" title="Listen to this story" aria-label="Listen to this story"><i class="fas fa-volume-up"></i></button><span class="tts-label">Listen to this story</span>`;
+        titleEl.insertAdjacentElement('afterend', listenRow);
+    }
 
     // Assemble modal
     modalContent.appendChild(closeButton);
@@ -521,8 +532,37 @@ function showFullStory(story) {
         if (e.target === modal) {
             document.body.removeChild(modal);
             document.body.style.overflow = 'auto'; // Re-enable scrolling
+            stopModalSpeech();
         }
     });
+
+    // Modal TTS logic
+    let modalUtterance = null;
+    function stopModalSpeech() {
+        window.speechSynthesis.cancel();
+        const btn = storyContent.querySelector('.tts-btn');
+        if (btn) btn.classList.remove('playing');
+        modalUtterance = null;
+    }
+    const ttsModalBtn = storyContent.querySelector('.tts-btn');
+    if (ttsModalBtn) {
+        ttsModalBtn.addEventListener('click', function() {
+            if (ttsModalBtn.classList.contains('playing')) {
+                stopModalSpeech();
+                return;
+            }
+            stopModalSpeech();
+            // Get all text from the modal story content
+            let text = storyContent.textContent;
+            if (!text) return;
+            const utterance = new window.SpeechSynthesisUtterance(text);
+            utterance.onend = stopModalSpeech;
+            utterance.onerror = stopModalSpeech;
+            modalUtterance = utterance;
+            ttsModalBtn.classList.add('playing');
+            window.speechSynthesis.speak(utterance);
+        });
+    }
 }
 
 // Function to populate the stories grid with all stories
@@ -537,8 +577,8 @@ function populateStoriesGrid() {
     }
 
     // Add the additional stories (starting from index 3)
-    for (let i = 3; i < successStories.length; i++) {
-        const story = successStories[i];
+    for (let i = 3; i < window.successStories.length; i++) {
+        const story = window.successStories[i];
 
         // Create story card
         const storyCard = document.createElement('article');
@@ -566,6 +606,10 @@ function populateStoriesGrid() {
             </div>
             <div class="story-content">
                 <h3>${story.title}</h3>
+                <div class="listen-row">
+                  <button class="tts-btn" title="Listen to this story" aria-label="Listen to this story"><i class="fas fa-volume-up"></i></button>
+                  <span class="tts-label">Listen to this story</span>
+                </div>
                 <p class="story-meta">${story.name} | ${story.business} | ${story.timeframe}</p>
                 <div class="story-rating">
                     ${generateRatingStars(story.rating)}
@@ -607,6 +651,54 @@ function generateRatingStars(rating) {
     return starsHTML;
 }
 
+// Text-to-Speech setup for story cards
+function setupStoriesTTS() {
+    let currentUtterance = null;
+    let currentBtn = null;
+    function stopSpeech() {
+        window.speechSynthesis.cancel();
+        if (currentBtn) {
+            currentBtn.classList.remove('playing');
+        }
+        currentUtterance = null;
+        currentBtn = null;
+    }
+    document.addEventListener('click', function(e) {
+        if (e.target.closest('.tts-btn')) {
+            const btn = e.target.closest('.tts-btn');
+            const card = btn.closest('.story-card');
+            if (!card) return;
+            // If already playing, stop
+            if (btn.classList.contains('playing')) {
+                stopSpeech();
+                return;
+            }
+            // Stop any previous speech
+            stopSpeech();
+            // Get text to read
+            let text = '';
+            const title = card.querySelector('h2, h3');
+            const meta = card.querySelector('.story-meta');
+            const excerpt = card.querySelector('.story-excerpt');
+            if (title) text += title.textContent + '. ';
+            if (meta) text += meta.textContent + '. ';
+            if (excerpt) text += excerpt.textContent;
+            if (!text) return;
+            // Create utterance
+            const utterance = new window.SpeechSynthesisUtterance(text);
+            utterance.onend = stopSpeech;
+            utterance.onerror = stopSpeech;
+            currentUtterance = utterance;
+            currentBtn = btn;
+            btn.classList.add('playing');
+            window.speechSynthesis.speak(utterance);
+        } else if (!e.target.closest('.tts-btn') && currentUtterance) {
+            // Clicked outside, stop speech
+            stopSpeech();
+        }
+    });
+}
+
 // Initialize the page
 document.addEventListener('DOMContentLoaded', () => {
     setupCategoryFiltering();
@@ -617,4 +709,5 @@ document.addEventListener('DOMContentLoaded', () => {
     // Only call setupReadMoreButtons once after populating the grid
     // This prevents duplicate event listeners
     setupReadMoreButtons();
+    setupStoriesTTS();
 });

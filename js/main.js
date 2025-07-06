@@ -351,6 +351,59 @@ function animateFooter() {
     checkFooterSections();
 }
 
+// === Mobile Testimonials Carousel (≤480px) ===
+function setupMobileTestimonialsCarousel() {
+    if (window.innerWidth > 480) return;
+    const grid = document.getElementById('testimonialsGrid');
+    const cards = Array.from(grid.querySelectorAll('.testimonial-card'));
+    const prevArrow = document.querySelector('.prev-arrow');
+    const nextArrow = document.querySelector('.next-arrow');
+    if (!grid || cards.length === 0 || !prevArrow || !nextArrow) return;
+
+    let current = 0;
+    let autoSlideTimer = null;
+
+    function showCard(idx) {
+        cards.forEach((card, i) => {
+            card.style.display = i === idx ? 'block' : 'none';
+        });
+    }
+
+    function next() {
+        current = (current + 1) % cards.length;
+        showCard(current);
+        resetAutoSlide();
+    }
+
+    function prev() {
+        current = (current - 1 + cards.length) % cards.length;
+        showCard(current);
+        resetAutoSlide();
+    }
+
+    function resetAutoSlide() {
+        if (autoSlideTimer) clearInterval(autoSlideTimer);
+        autoSlideTimer = setInterval(next, 4000);
+    }
+
+    prevArrow.addEventListener('click', prev);
+    nextArrow.addEventListener('click', next);
+
+    showCard(current);
+    resetAutoSlide();
+
+    // Clean up on resize
+    window.addEventListener('resize', () => {
+        if (window.innerWidth > 480 && autoSlideTimer) {
+            clearInterval(autoSlideTimer);
+            cards.forEach(card => (card.style.display = ''));
+        } else if (window.innerWidth <= 480) {
+            showCard(current);
+            resetAutoSlide();
+        }
+    });
+}
+
 // Initialize all functionality when the DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
     populateTrendingHustles();
@@ -363,4 +416,5 @@ document.addEventListener('DOMContentLoaded', () => {
     animateSteps();
     animateTestimonials();
     animateFooter();
+    setupMobileTestimonialsCarousel();
 });

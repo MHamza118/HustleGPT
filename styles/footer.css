@@ -235,6 +235,36 @@
     }
 }
 
+@media (max-width: 480px) {
+    .footer,
+    .footer-content,
+    .footer-section,
+    .footer-bottom {
+        text-align: center !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+    .footer-content {
+        justify-items: center;
+        align-items: center;
+        padding: 0 !important;
+    }
+    .footer-section {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+    .newsletter-form {
+        padding-left: 10px;
+        padding-right: 10px;
+        box-sizing: border-box;
+    }
+    .newsletter-form input,
+    .newsletter-form button {
+        width: 100%;
+        box-sizing: border-box;
+    }
+}
+
 /* Animation for footer sections */
 .footer-section {
     opacity: 0;

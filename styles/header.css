@@ -384,3 +384,25 @@
         display: none;
     }
 }
+
+#theme-toggle {
+    background: rgba(79, 70, 229, 0.08);
+    border: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary-color);
+    border-radius: 50%;
+    box-shadow: 0 2px 8px rgba(79, 70, 229, 0.08);
+    transition: color var(--transition-normal), background var(--transition-normal), box-shadow var(--transition-normal);
+    width: 2.5rem;
+    height: 2.5rem;
+}
+#theme-toggle:hover {
+    color: var(--secondary-color);
+    background: rgba(16, 185, 129, 0.12);
+    box-shadow: 0 4px 16px rgba(16, 185, 129, 0.12);
+}

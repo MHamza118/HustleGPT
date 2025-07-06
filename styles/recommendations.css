@@ -71,16 +71,25 @@
 }
 @media (max-width: 600px) {
   #recommendations-section {
-    padding: var(--spacing-md) var(--spacing-xs);
+    padding: var(--spacing-md) 0;
   }
   .recommendations-grid {
-    grid-template-columns: 1fr;
-    gap: var(--spacing-md);
+    padding: 0 14px;
+  }
+  .recommendation-card {
+    max-width: 94vw;
+    margin: 0 auto;
+    padding-left: 6px;
+    padding-right: 6px;
+    box-sizing: border-box;
   }
   .recommendation-card img {
+    max-width: 100%;
     height: 120px;
+    object-fit: cover;
+    display: block;
   }
   .rec-content {
-    padding: var(--spacing-md);
+    padding: var(--spacing-md) 2px;
   }
 } 

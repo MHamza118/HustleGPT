@@ -432,8 +432,9 @@
     }
 
     .submit-story {
-        padding: var(--spacing-lg) var(--spacing-md);
-        margin-top: var(--spacing-xl);
+        padding-left: 10px;
+        padding-right: 10px;
+        box-sizing: border-box;
     }
 
     .submit-story h2 {
@@ -515,6 +516,13 @@
         right: var(--spacing-xs);
         margin: var(--spacing-xs);
     }
+
+    .submit-button {
+        padding-left: 12px !important;
+        padding-right: 12px !important;
+        min-width: 0;
+        box-sizing: border-box;
+    }
 }
 
 .stories-filter {
@@ -578,4 +586,50 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+}
+
+.listen-row {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 0.5rem 0 1rem 0;
+}
+
+.tts-btn {
+    background: none;
+    border: none;
+    color: var(--primary-color);
+    font-size: 1.1rem;
+    cursor: pointer;
+    padding: 0.3rem 0.6rem;
+    border-radius: 50%;
+    transition: background 0.2s, color 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tts-btn:hover, .tts-btn.playing {
+    background: var(--primary-light);
+    color: #fff;
+}
+
+.tts-label {
+    font-size: 1rem;
+    color: var(--light-text);
+    font-weight: 500;
+    user-select: none;
+}
+
+.dark-mode .tts-btn {
+    color: var(--accent-color);
+}
+
+.dark-mode .tts-btn:hover, .dark-mode .tts-btn.playing {
+    background: var(--accent-color);
+    color: #18181b;
+}
+
+.dark-mode .tts-label {
+    color: var(--accent-color);
 }

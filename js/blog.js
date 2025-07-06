@@ -1,7 +1,7 @@
 // JavaScript for the blog.html page
 
 // Sample data for blog posts
-const blogPosts = [
+window.blogPosts = [
     {
         title: "10 AI Tools That Can Help You Start Your Side Hustle Today",
         excerpt: "Discover the most powerful AI tools that can help you automate tasks, create content, and grow your side hustle faster than ever before.",
@@ -125,7 +125,7 @@ function renderBlogPosts() {
     blogGrid.innerHTML = '';
 
     // Render featured post
-    const featured = blogPosts.find(post => post.featured);
+    const featured = window.blogPosts.find(post => post.featured);
     if (featured) {
         featuredSection.innerHTML = `
             <article class="post-card" data-category="${featured.category}">
@@ -142,6 +142,10 @@ function renderBlogPosts() {
                         <span class="post-tag">${capitalize(featured.category)}</span>
                     </div>
                     <h2>${featured.title}</h2>
+                    <div class="listen-row">
+                        <button class="tts-btn" title="Listen to this post" aria-label="Listen to this post"><i class="fas fa-volume-up"></i></button>
+                        <span class="tts-label">Listen to this blog</span>
+                    </div>
                     <p class="post-meta"><i class="fas fa-user"></i> By ${featured.author} | <i class="fas fa-clock"></i> ${featured.readTime} read</p>
                     <p class="post-excerpt">${featured.excerpt}</p>
                     <a href="#" class="read-more btn btn-primary">Read More</a>
@@ -151,7 +155,7 @@ function renderBlogPosts() {
     }
 
     // Render other posts
-    blogPosts.filter(post => !post.featured).forEach((post, idx) => {
+    window.blogPosts.filter(post => !post.featured).forEach((post, idx) => {
         blogGrid.innerHTML += `
             <article class="post-card reveal fade-bottom" style="--delay: 0.${idx + 1}s" data-category="${post.category}">
                 <div class="post-image">
@@ -166,6 +170,10 @@ function renderBlogPosts() {
                         <span class="post-tag">${capitalize(post.category)}</span>
                     </div>
                     <h3>${post.title}</h3>
+                    <div class="listen-row">
+                        <button class="tts-btn" title="Listen to this post" aria-label="Listen to this post"><i class="fas fa-volume-up"></i></button>
+                        <span class="tts-label">Listen to this blog</span>
+                    </div>
                     <p class="post-meta"><i class="fas fa-user"></i> By ${post.author} | <i class="fas fa-clock"></i> ${post.readTime} read</p>
                     <p class="post-excerpt">${post.excerpt}</p>
                     <a href="#" class="read-more btn btn-primary">Read More</a>
@@ -179,10 +187,113 @@ function capitalize(str) {
     return str.charAt(0).toUpperCase() + str.slice(1);
 }
 
+// Text-to-Speech setup for blog cards
+function setupBlogTTS() {
+    let currentUtterance = null;
+    let currentBtn = null;
+    function stopSpeech() {
+        window.speechSynthesis.cancel();
+        if (currentBtn) {
+            currentBtn.classList.remove('playing');
+        }
+        currentUtterance = null;
+        currentBtn = null;
+    }
+    document.addEventListener('click', function(e) {
+        if (e.target.closest('.tts-btn')) {
+            const btn = e.target.closest('.tts-btn');
+            const card = btn.closest('.post-card');
+            if (!card) return;
+            // If already playing, stop
+            if (btn.classList.contains('playing')) {
+                stopSpeech();
+                return;
+            }
+            // Stop any previous speech
+            stopSpeech();
+            // Get text to read
+            let text = '';
+            const title = card.querySelector('h2, h3');
+            const meta = card.querySelector('.post-meta');
+            const excerpt = card.querySelector('.post-excerpt');
+            if (title) text += title.textContent + '. ';
+            if (meta) text += meta.textContent + '. ';
+            if (excerpt) text += excerpt.textContent;
+            if (!text) return;
+            // Create utterance
+            const utterance = new window.SpeechSynthesisUtterance(text);
+            utterance.onend = stopSpeech;
+            utterance.onerror = stopSpeech;
+            currentUtterance = utterance;
+            currentBtn = btn;
+            btn.classList.add('playing');
+            window.speechSynthesis.speak(utterance);
+        } else if (!e.target.closest('.tts-btn') && currentUtterance) {
+            // Clicked outside, stop speech
+            stopSpeech();
+        }
+    });
+}
+
+// Blog modal logic for chatbot
+function showBlogModal(title) {
+    const post = window.blogPosts.find(p => p.title === title);
+    if (!post) return;
+    // Remove any existing modal
+    const oldModal = document.getElementById('blog-modal');
+    if (oldModal) oldModal.remove();
+    // Create modal
+    const modal = document.createElement('div');
+    modal.id = 'blog-modal';
+    modal.style.position = 'fixed';
+    modal.style.top = '0';
+    modal.style.left = '0';
+    modal.style.width = '100vw';
+    modal.style.height = '100vh';
+    modal.style.background = 'rgba(0,0,0,0.4)';
+    modal.style.display = 'flex';
+    modal.style.alignItems = 'center';
+    modal.style.justifyContent = 'center';
+    modal.style.zIndex = '10001';
+    // Modal content
+    const content = document.createElement('div');
+    content.style.background = '#fff';
+    content.style.borderRadius = '1rem';
+    content.style.maxWidth = '500px';
+    content.style.width = '90%';
+    content.style.padding = '2rem';
+    content.style.position = 'relative';
+    content.style.boxShadow = '0 8px 32px rgba(0,0,0,0.18)';
+    // Close button
+    const closeBtn = document.createElement('span');
+    closeBtn.textContent = '×';
+    closeBtn.style.position = 'absolute';
+    closeBtn.style.top = '1rem';
+    closeBtn.style.right = '1.5rem';
+    closeBtn.style.fontSize = '2rem';
+    closeBtn.style.cursor = 'pointer';
+    closeBtn.style.color = '#888';
+    closeBtn.addEventListener('click', () => modal.remove());
+    // Blog content
+    content.innerHTML = `
+        <h2 style="margin-top:0;">${post.title}</h2>
+        <p style="color:#666;font-size:1rem;margin-bottom:0.5rem;">By ${post.author} | ${post.date} | ${post.readTime} read</p>
+        <img src="${post.image}" alt="${post.title}" style="width:100%;border-radius:0.5rem;margin-bottom:1rem;max-height:220px;object-fit:cover;" />
+        <p style="font-size:1.1rem;line-height:1.7;">${post.excerpt}</p>
+    `;
+    content.appendChild(closeBtn);
+    modal.appendChild(content);
+    document.body.appendChild(modal);
+    // Remove modal on background click
+    modal.addEventListener('click', e => { if (e.target === modal) modal.remove(); });
+}
+window.showBlogModal = showBlogModal;
+
 // Initialize the page
 document.addEventListener('DOMContentLoaded', () => {
     renderBlogPosts();
     setupCategoryFiltering();
     setupNewsletterForm();
     setupReadMoreButtons();
+    setupBlogTTS();
 });

@@ -111,4 +111,35 @@
   .comment-card {
     padding: var(--spacing-md);
   }
+}
+@media (max-width: 480px) {
+    .comments-section,
+    #comments-section {
+        padding: 0.5rem 0.2rem;
+    }
+    .comment-form {
+        flex-direction: column;
+        gap: 0.5rem;
+        align-items: stretch;
+        padding-left: 10px;
+        padding-right: 10px;
+        box-sizing: border-box;
+    }
+    .comment-form input,
+    .comment-form textarea,
+    .comment-form button {
+        width: 100%;
+        box-sizing: border-box;
+    }
+    .comment-card {
+        padding: 0.7rem 0.5rem;
+        font-size: 1rem;
+        word-break: break-word;
+    }
+    .comment-meta {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.2rem;
+        font-size: 0.95rem;
+    }
 } 
